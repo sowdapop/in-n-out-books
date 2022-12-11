@@ -1,0 +1,50 @@
+/* <!--
+// Title: Exercise 5.2 - Navigation and Layout
+// Author: Professor Krasso
+// Date: 19 Nov 2022
+// Modified By: Kayla McDanel
+// Description: In-N-Out Books App
+// Code Attribution: Code and instruction provided by Professor Krasso's videos and assignment docs.
+--> */
+
+/*imports styles from _theme.scss via sass*/
+@import './theme';
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/*new styles added*/
+.blue {
+  color: #2196f3;
+}
+
+.green {
+  color: #66BB6A;
+}
+
+.attribution-link {
+  text-decoration: none;
+  color: white;
+}
+
+.attribution-link:hover {
+  text-decoration: underline;
+}
+
+.card-title-icon {
+  text-align: center;
+}
+
+.card-title-icon, mat-icon {
+  font-size: 72px;
+}
+
+.align-center {
+  text-align: center;
+}
