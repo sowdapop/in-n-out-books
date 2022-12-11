@@ -1,7 +1,7 @@
 
-  // Title: Exercise 6.2 - Output Properties
+  // Title: Assignment 8.2 – Server-side Communications
   // Author: Professor Krasso
-  // Date: 27 Nov 2022
+  // Date: 10 Dec 2022
   // Modified By: Kayla McDanel
   // Description: In-N-Out Books App
   // Code Attribution: Code and instruction provided by Professor Krasso's videos and assignment docs.
@@ -32,6 +32,10 @@ import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input'
 
+//importing modules to use open library API
+import { HttpClientModule } from '@angular/common/http';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 
 @NgModule({
   declarations: [
@@ -58,7 +62,9 @@ import { MatInputModule } from '@angular/material/input'
     MatDialogModule,
     FormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    HttpClientModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

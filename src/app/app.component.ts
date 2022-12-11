@@ -1,7 +1,7 @@
 
-  // Title: Exercise 6.2 - Output Properties
+  // Title: Assignment 8.2 – Server-side Communications
   // Author: Professor Krasso
-  // Date: 27 Nov 2022
+  // Date: 10 Dec 2022
   // Modified By: Kayla McDanel
   // Description: In-N-Out Books App
   // Code Attribution: Code and instruction provided by Professor Krasso's videos and assignment docs.
@@ -21,6 +21,6 @@ export class AppComponent {
 assignment: string;
 
 constructor() {
-  this.assignment = 'Exercise 6.2 - Output Properties'
+  this.assignment = 'Welcome to In-N-Out Books'
 }
 }

@@ -1,7 +1,6 @@
-
-  // Title: Assignment 5.4 - Dialogs
+  // Title: Assignment 8.2 – Server-side Communications
   // Author: Professor Krasso
-  // Date: 20 Nov 2022
+  // Date: 10 Dec 2022
   // Modified By: Kayla McDanel
   // Description: In-N-Out Books App
   // Code Attribution: Code and instruction provided by Professor Krasso's videos and assignment docs.
@@ -21,25 +20,46 @@ import { BookDetailsDialogComponent } from '../book-details-dialog/book-details-
 export class BookListComponent implements OnInit {
 
   //field properties for material data table
-  books: Observable<IBook[]>;
-  //header for table
-  header: Array<string> = ['isbn', 'title', 'numOfPages', 'authors'];
+  books: Array<IBook[]>;
+
   //maps to book object
   book!: IBook;
 
   //for entire book list
   constructor(private booksService: BooksService, private dialog: MatDialog) {
-    this.books = this.booksService.getBooks();
+    this.booksService.getBooks().subscribe(res => {
+      console.log(res);
+      for (let key in res) {
+        if (res.hasOwnProperty(key)) {
+          let authors = [];
+          if (res[key].details.authors) {
+            authors = res[key].details.authors.map(function(author) {
+              return author.name;
+            })
+          }
+        }
+      }
+
+      this.books.push({
+        isbn: res[key].details.isbn_13 ? res[key].details.isbn_13 : res[key].details.isbn_10,
+        title: res[key].details.title,
+        description: res[key].details.subtitle ? res[key].details.subtitle : 'N/A',
+        numOfPages: res[key].details.number_of_pages,
+        authors: authors
+      })
+    })
    }
+
+
 
   ngOnInit(): void {
   }
 
   //for individual book detail
   showBookDetails(isbn: string) {
-    this.book = this.booksService.getBook(isbn);
+    this.book = this.books.find(book => book.isbn === isbn);
 
-    const dialogRef = this.dialog.open(BookDetailsDialogComponent, { data: { book: this.book, disableClose: true} });
+    const dialogRef = this.dialog.open(BookDetailsDialogComponent, { data: { book: this.book, disableClose: true, width: '800px'} });
 
     console.log(this.book);
 
